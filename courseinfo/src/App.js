@@ -1,88 +1,51 @@
 import "./App.css"
 import React from "react"
-
-const Course = ({ course }) => {
-  return (
-    <div>
-      <Header course={course} />
-      <Content course={course} />
-      <Total parts={course.parts} />
-    </div>
-  )
-}
-
-const Header = ({ course }) => {
-  return <h1>{course.name}</h1>
-}
-
-const Total = ({ parts }) => {
-  const sum =
-    parts.reduce((s, p) => s + p.exercises, 0)
-  return <b>Number of exercises {sum}</b>
-}
-
-const Part = props => {
-  return (
-    <p>
-      {props.part.name} {props.part.exercises}
-    </p>
-  )
-}
-
-const Content = ({ course }) => {
-  return (
-    <div>
-      {course.parts.map(part => (
-        <Part key={part.id} part={part} />
-      ))}
-    </div>
-  )
-}
+import Course from "./components/Course"
 
 const App = () => {
   const courses = [
     {
-      name: 'Half Stack application development',
+      name: "Half Stack application development",
       id: 1,
       parts: [
         {
-          name: 'Fundamentals of React',
+          name: "Fundamentals of React",
           exercises: 10,
-          id: 1
+          id: 1,
         },
         {
-          name: 'Using props to pass data',
+          name: "Using props to pass data",
           exercises: 7,
-          id: 2
+          id: 2,
         },
         {
-          name: 'State of a component',
+          name: "State of a component",
           exercises: 14,
-          id: 3
+          id: 3,
         },
         {
-          name: 'Redux',
+          name: "Redux",
           exercises: 11,
-          id: 4
-        }
-      ]
-    }, 
+          id: 4,
+        },
+      ],
+    },
     {
-      name: 'Node.js',
+      name: "Node.js",
       id: 2,
       parts: [
         {
-          name: 'Routing',
+          name: "Routing",
           exercises: 3,
-          id: 1
+          id: 1,
         },
         {
-          name: 'Middlewares',
+          name: "Middlewares",
           exercises: 7,
-          id: 2
-        }
-      ]
-    }
+          id: 2,
+        },
+      ],
+    },
   ]
 
   return (
